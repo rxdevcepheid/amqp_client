@@ -33,7 +33,6 @@
                               connection_timeout = infinity,
                               ssl_options        = [{verify, verify_none},
 						    						{fail_if_no_peer_cert, false},
-                                                    {versions, ['tlsv1.2']},
 						    						{ciphers, 
 													 ["ECDHE_RSA_WITH_AES_256_GCM_SHA384", 
 													  "ECDHE_RSA_WITH_AES_128_GCM_SHA256"]}],
