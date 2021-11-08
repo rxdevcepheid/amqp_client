@@ -161,7 +161,7 @@ start(AmqpParams) ->
 %% user specified connection name.
 start(AmqpParams, ConnName) when ConnName == undefined; is_binary(ConnName) ->
     ensure_started(),
-	lager:info("calling start with params"),
+	io:fwrite("calling start with params"),
     AmqpParams1 =
         case AmqpParams of
             #amqp_params_network{port = undefined, ssl_options = none} ->
