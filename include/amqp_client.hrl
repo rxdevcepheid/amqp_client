@@ -22,16 +22,21 @@
 
 -record(amqp_msg, {props = #'P_basic'{}, payload = <<>>}).
 
--record(amqp_params_network, {username           = <<"guest">>,
-                              password           = <<"guest">>,
+-record(amqp_params_network, {username           = <<"vein">>,
+                              password           = <<"vein">>,
                               virtual_host       = <<"/">>,
-                              host               = "localhost",
-                              port               = undefined,
+                              host               = "rabbitmq",
+                              port               = 5671,
                               channel_max        = 0,
                               frame_max          = 0,
                               heartbeat          = 10,
                               connection_timeout = infinity,
-                              ssl_options        = none,
+                              ssl_options        = [{verify, verify_none},
+						    						{fail_if_no_peer_cert, false},
+                                                    {versions, ['tlsv1.2']},
+						    						{ciphers, 
+													 ["ECDHE_RSA_WITH_AES_256_GCM_SHA384", 
+													  "ECDHE_RSA_WITH_AES_128_GCM_SHA256"]}],
                               auth_mechanisms    =
                                   [fun amqp_auth_mechanisms:plain/3,
                                    fun amqp_auth_mechanisms:amqplain/3],

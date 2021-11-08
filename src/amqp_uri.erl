@@ -152,6 +152,7 @@ set(KVs, Ps, Fields) ->
     Ps1.
 
 build_ssl_broker(ParsedUri, DefaultVHost) ->
+	lager:info("building ssl broker")
     Params = build_broker(ParsedUri, DefaultVHost),
     Query = proplists:get_value('query', ParsedUri),
     SSLOptions =
