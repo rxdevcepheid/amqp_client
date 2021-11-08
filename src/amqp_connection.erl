@@ -144,6 +144,8 @@
 %%      Connection = pid()
 %% @doc same as {@link amqp_connection:start/2. start(Params, undefined)}
 start(AmqpParams) ->
+	lager:info("calling start with params, lager"),
+	io:fwrite("calling start with params, fwrite"),
     start(AmqpParams, undefined).
 
 %% @spec (Params, ConnectionName) -> {ok, Connection} | {error, Error}
@@ -161,7 +163,6 @@ start(AmqpParams) ->
 %% user specified connection name.
 start(AmqpParams, ConnName) when ConnName == undefined; is_binary(ConnName) ->
     ensure_started(),
-	io:fwrite("calling start with params"),
     AmqpParams1 =
         case AmqpParams of
             #amqp_params_network{port = undefined, ssl_options = none} ->
