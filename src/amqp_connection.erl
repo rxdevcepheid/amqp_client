@@ -175,7 +175,7 @@ start(AmqpParams, ConnName) when ConnName == undefined; is_binary(ConnName) ->
     AmqpParams2 = set_connection_name(ConnName, AmqpParams1),
 	io:fwrite("AmqpParams2: ~p~n", [AmqpParams2]),
     {ok, _Sup, Connection} = amqp_sup:start_connection_sup(AmqpParams2),
-	io:fwrite("Connection: ~p~n", [Connection]]),
+	io:fwrite("Connection: ~p~n", [Connection]),
 	amqp_gen_connection:connect(Connection).
 
 set_connection_name(undefined, Params) -> Params;
