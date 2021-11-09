@@ -153,8 +153,7 @@ set(KVs, Ps, Fields) ->
     Ps1.
 
 build_ssl_broker(ParsedUri, DefaultVHost) ->
-	io:fwrite("building ssl broker \n"),
-    Params = build_broker(ParsedUri, DefaultVHost),
+	Params = build_broker(ParsedUri, DefaultVHost),
     Query = proplists:get_value('query', ParsedUri),
     SSLOptions =
         run_state_monad(
