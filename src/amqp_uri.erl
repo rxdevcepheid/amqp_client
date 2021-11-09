@@ -71,6 +71,7 @@ parse(Uri, DefaultVHost) ->
     end.
 
 parse1(Uri, DefaultVHost) when is_list(Uri) ->
+	io:fwrite("parsing uri \n"),
     case uri_parser:parse(Uri, [{host, undefined}, {path, undefined},
                                 {port, undefined}, {'query', []}]) of
         {error, Err} ->
@@ -152,7 +153,7 @@ set(KVs, Ps, Fields) ->
     Ps1.
 
 build_ssl_broker(ParsedUri, DefaultVHost) ->
-	lager:info("building ssl broker"),
+	io:fwrite("building ssl broker \n"),
     Params = build_broker(ParsedUri, DefaultVHost),
     Query = proplists:get_value('query', ParsedUri),
     SSLOptions =

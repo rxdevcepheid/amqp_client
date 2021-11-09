@@ -144,7 +144,7 @@
 %%      Connection = pid()
 %% @doc same as {@link amqp_connection:start/2. start(Params, undefined)}
 start(AmqpParams) ->
-	io:fwrite("calling start with params, fwrite"),
+ 	io:fwrite("calling start with params, fwrite \n"),
     start(AmqpParams, undefined).
 
 %% @spec (Params, ConnectionName) -> {ok, Connection} | {error, Error}
